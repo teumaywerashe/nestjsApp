@@ -40,6 +40,7 @@ export class PostsService {
       updatedAt: now,
     };
 
+
     this.posts.push(post);
     return this.toPublicPost(post);
   }
@@ -97,7 +98,7 @@ export class PostsService {
 
   private ensureOwner(post: PostRecord, authorId: number): void {
     if (post.authorId !== authorId) {
-      throw new ForbiddenException('You can only manage your own posts');
+      throw new ForbiddenException('You can only manage your own post');
     }
   }
 
