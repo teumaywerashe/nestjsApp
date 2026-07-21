@@ -24,6 +24,7 @@ export interface PublicPost {
   updatedAt: string;
 }
 
+
 @Injectable()
 export class PostsService {
   private readonly posts: PostRecord[] = [];
@@ -39,7 +40,6 @@ export class PostsService {
       createdAt: now,
       updatedAt: now,
     };
-
 
     this.posts.push(post);
     return this.toPublicPost(post);
@@ -101,7 +101,6 @@ export class PostsService {
       throw new ForbiddenException('You can only manage your own post');
     }
   }
-
   private toPublicPost(post: PostRecord): PublicPost {
     return {
       id: post.id,
